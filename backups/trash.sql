@@ -1,0 +1,45 @@
+-- SELECT
+--   fct_ventas.pedido_id,
+--   fct_ventas.producto_id,
+--   fct_ventas.fecha_pedido,
+--   fct_ventas.empleado_id,
+--   fct_ventas.cnt_unidades_vendidas,
+--   fct_ventas.mnt_ingresos,
+--   fct_ventas.mnt_costo,
+--   fct_ventas.mnt_descuento,
+--   fct_ventas.cliente_id
+
+-- FROM transformed.fact_ventas AS fct_ventas
+-- FULL OUTER JOIN fuentes.planilla_sucursal planilla_suc
+--   ON fct_ventas.pedido_id = planilla_suc.pedido_id
+-- WHERE
+--   fct_ventas.pedido_id IS NULL OR planilla_suc.pedido_id IS NULL
+-- -- LIMIT 100
+-- ;
+
+
+-- SELECT
+-- 	fct_ventas.pedido_id AS fact_pedido_id,
+-- 	planilla_suc.pedido_id AS suc_pedido_id,
+-- 	planilla_tiendloc.nro_pedido AS tienda_pedido_id
+-- --   fct_ventas.pedido_id,
+-- --   fct_ventas.producto_id,
+-- --   fct_ventas.fecha_pedido,
+-- --   fct_ventas.empleado_id,
+-- --   fct_ventas.cnt_unidades_vendidas,
+-- --   fct_ventas.mnt_ingresos,
+-- --   fct_ventas.mnt_costo,
+-- --   fct_ventas.mnt_descuento,
+-- --   fct_ventas.cliente_id
+
+-- FROM transformed.fact_ventas AS fct_ventas
+-- FULL OUTER JOIN fuentes.planilla_sucursal planilla_suc
+--   ON fct_ventas.pedido_id = planilla_suc.pedido_id
+-- FULL OUTER JOIN fuentes.planilla_datos_tienda_local planilla_tiendloc
+--   ON fct_ventas.pedido_id = planilla_tiendloc.nro_pedido
+--   AND planilla_suc.pedido_id = planilla_tiendloc.nro_pedido
+-- WHERE
+--   fct_ventas.pedido_id IS NULL
+--   OR planilla_suc.pedido_id IS NULL
+--   OR planilla_tiendloc.nro_pedido IS NULL
+-- ;

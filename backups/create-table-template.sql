@@ -1,5 +1,5 @@
 CREATE TABLE datamart.ventas(
-    pedido_id INTEGER NOT NULL PRIMARY KEY,
+    pedido_id INTEGER NOT NULL,
     producto_id INTEGER,
     fecha_pedido DATE,
     mes VARCHAR,
