@@ -183,3 +183,16 @@ INSERT INTO datamart.productos(
 	JOIN transformed.lu_subcategoria AS lusubcat USING(subcategoria_id)
 	JOIN transformed.lu_categoria AS lucat USING(categoria_id)
   ORDER BY producto_id;
+
+
+
+
+
+
+
+SELECT producto_ref.producto_desc AS producto, SUM(mnt_ingresos) AS ingresos
+	FROM datamart.ventas
+	JOIN datamart.productos producto_ref USING(producto_id)
+GROUP BY producto
+ORDER BY ingresos DESC
+;
